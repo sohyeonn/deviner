@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Deviner-화장품 본격 추천 사이트</title>
+    <style>
+        ul {
+              list-style-type: none;
+              margin: -10px;
+              padding: 0;
+              overflow: hidden;
+              background-color: red;
+      }
+      li {
+          float: right;
+      }
+      
+      li a {
+          display: block;
+          color: white;
+          text-align: center;
+          padding: 14px 16px;
+          text-decoration: none;
+          font-size: 20px;
+      }
+      
+      li a:hover {
+          text-decoration: underline;
+      }
+      li.name {
+            float: left;
+            color: white;
+            font-size: 2.5em;
+            padding: 5px;
+            padding-left: 125px;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        div.ranking-top {
+            background-image: url("/static/imgs/D.png");
+            padding: 100px;
+            margin-left: -8px;
+            margin-top: 10px;
+            width: 100%;
+            display: inline-block;
+            list-style: none;
+            font-family: Arial, Helvetica, sans-serif;
+         }
+
+     div a {
+        
+          color: gray;
+          text-align: center;
+          padding: 14px 16px;
+          text-decoration: none;
+          font-size: 20px;
+     }
+    </style>
+</head>
+<body>
+    <ul>
+        <li class="name">deviner</li>
+        <li><a href="/logout">LogOut</a></li>
+        <li><a href="/updateform">MyPage</a></li>
+        <li><a href="/categoryform">Category</a></li>
+        <li><a href="/p_rankform">Rank</a></li>
+        <li><a class="active" href="/">Home</a></li>
+      </ul>
+    <div class="ranking-top">
+            <li class= "name">제품 카테고리</li>
+    </div>
+    
+    <a href='/catelist_allform/1'>기초 전체보기</a>
+    <div class="catego_skin">
+        {% for r in rows %}
+        {% if r.cate_num<6 %}
+            <a href="/catelistform/{{r.cate_num}}">
+                {{r.cate_lower_name}}<br>
+            </a>
+        {% endif %}
+        {% endfor %}
+    </div>
+    <br>
+    <a href='/catelist_allform/2'>색조 전체보기</a>
+    <div class="catego_color">
+        {% for r in rows %}
+        {% if r.cate_num>5 %}
+            <a href="/catelistform/{{r.cate_num}}">
+                {{r.cate_lower_name}}<br>
+            </a>
+        {% endif %}
+        {% endfor %}
+    </div>
+    
+</body>
+</html>
+
+
+
+
+
+
+
